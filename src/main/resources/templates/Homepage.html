@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application</title>
+    <link rel="stylesheet" th:href="@{/css/Homepage.css}">
+</head>
+<body>
+    <nav class="navbar">
+        <a th:href="@{/home}" class="home-button">Home</a>
+    </nav>
+    <div class="container">
+        <h1>Find Your Dream Job</h1>
+        <p>Explore the best job opportunities or post a job for others.</p>
+        <div class="button-group" >
+            <form th:action="@{/alljobs}" method="post">
+                <button class="btn show-jobs">Show All Jobs</button>
+            </form>
+            <form th:action="@{/addjob}" method="get">
+                <button class="btn add-job">Add Job</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Listings</title>
+    <link rel="stylesheet" th:href="@{/css/AllJobpage.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>Available Job Listings</h1>
+        <div class="job-list" id="jobList">
+            <!-- Jobs will be dynamically inserted here -->
+             <div th:each="job : ${jobs}" class="job-card">
+                <div class="job-title" th:text="${job.title}">Job Title</div>
+                <div class="job-company" th:text="${job.company}">Job Company</div>
+                <div class="job-salary" th:text="${job.salary}">Job Salary</div>
+                <!-- This is very imp as this way we can transfer static data-->
+                 <!-- -->
+                <form th:action="@{/apply}" method="post">
+                    <input type="hidden" name="title" th:value="${job.title}" />
+                    <button type="submit" class="apply-btn">Apply Now</button>
+                </form>
+             </div>
+        </div>
+    </div>
+
+</body>
+</html>
